@@ -1,0 +1,73 @@
+/* General Reset & Typography */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f1f1f1;
+  margin: 0;
+  padding: 0;
+}
+
+/* Main container */
+.container {
+  max-width: 700px;
+  margin: 40px auto;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Heading */
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+/* Form layout */
+.w3-row-padding > .w3-third {
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  border-color: #66bb6a;
+  outline: none;
+}
+
+/* Buttons */
+button {
+  padding: 10px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:disabled {
+  background-color: #ccc !important;
+  cursor: not-allowed;
+}
+
+.w3-button.w3-green:hover {
+  background-color: #43a047 !important;
+}
+
+.w3-button.w3-red:hover {
+  background-color: #e53935 !important;
+}
+
+/* Error message */
+.w3-text-red {
+  font-size
