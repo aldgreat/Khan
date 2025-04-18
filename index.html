@@ -1,72 +1,36 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Khan Knight HP Calculator</title>
-  
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy"
-    content="script-src 'unsafe-inline' 'self' https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js https://608y0baaza.execute-api.us-east-1.amazonaws.com https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/">
-  <meta http-equiv="Content-Security-Policy" content="frame-src https://www.google.com/recaptcha/">
-  <meta http-equiv="Content-Security-Policy"
-    content="style-src 'self' 'unsafe-inline' https://www.w3schools.com/w3css/4/w3.css https://fonts.googleapis.com https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="style/style.css">
-  <link rel="shortcut icon" type="image/ico" href="favicon.ico" />
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-88238825-3"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'UA-88238825-3');
-  </script>
-</head>
-<style>
-  html,
-  body,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: "Roboto", sans-serif
-  }
-</style>
-
+<link rel="stylesheet" href="style/style.css">
 <body class="w3-light-grey">
-<div class="w3-row w3-section">
-<table>
-<table>
-<tr>
-  <td>LVL</td>
-  <td><input id="lvl0" type="text" name="lvl0" maxlength="3"></td>
-  <td><div id="error_lvl0"></div></td>
-</tr>
-<tr>
-  <td>CON</td>
-  <td><input id="con0" type="text" name="con0" maxlength="6"></td>
-  <td><div id="error_con0"></div></td>
-</tr>
-<tr>
-  <td>HP</td>
-  <td><input id="hp0" type="text" name="hp0"></td>
-  <td><div id="error_hp0"></div></td>
-</tr>
-</table>
-<table>
-<tr>
-<td><button id= "idstart" type="button" onclick="startHP()">Start</button></td>
-<td><button id= "idrestart" type="button" onclick="resetHP()" disabled="yes">Restart</button></td>
-</tr>
-</table>
-</div>
-<div id="idcon">
-</div>
+  <div class="w3-container w3-card-4 w3-white w3-margin-top w3-padding-large" style="max-width:600px;margin:auto;">
+    <h2 class="w3-center">Khan Knight HP Calculator</h2>
+
+    <form class="w3-container w3-padding">
+      <div class="w3-row-padding">
+        <div class="w3-third">
+          <label><b>LVL</b></label>
+          <input id="lvl0" class="w3-input w3-border" type="text" maxlength="3">
+          <div id="error_lvl0" class="w3-text-red w3-small"></div>
+        </div>
+        <div class="w3-third">
+          <label><b>CON</b></label>
+          <input id="con0" class="w3-input w3-border" type="text" maxlength="6">
+          <div id="error_con0" class="w3-text-red w3-small"></div>
+        </div>
+        <div class="w3-third">
+          <label><b>HP</b></label>
+          <input id="hp0" class="w3-input w3-border" type="text">
+          <div id="error_hp0" class="w3-text-red w3-small"></div>
+        </div>
+      </div>
+
+      <div class="w3-margin-top w3-center">
+        <button id="idstart" class="w3-button w3-green w3-margin-right" type="button" onclick="startHP()">Start</button>
+        <button id="idrestart" class="w3-button w3-red" type="button" onclick="resetHP()" disabled>Restart</button>
+      </div>
+    </form>
+  </div>
+
+  <div id="idcon" class="w3-container w3-margin-top" style="overflow-x:auto;"></div>
 </body>
 <script>
 var _0x1ec4=["\x72\x65\x61\x64\x4F\x6E\x6C\x79","\x6C\x76\x6C\x30","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x63\x6F\x6E\x30","\x68\x70\x30","\x64\x69\x73\x61\x62\x6C\x65\x64","\x69\x64\x73\x74\x61\x72\x74","\x69\x64\x72\x65\x73\x74\x61\x72\x74","\x76\x61\x6C\x75\x65","\x3C\x74\x61\x62\x6C\x65\x20\x62\x6F\x72\x64\x65\x72\x3D\x22\x31\x22\x3E\x0A","\x3C\x74\x72\x3E\x3C\x74\x68\x3E\x4C\x56\x4C\x3C\x2F\x74\x68\x3E\x3C\x74\x68\x3E\x43\x4F\x4E\x3C\x2F\x74\x68\x3E\x3C\x74\x68\x3E\x48\x50\x3C\x2F\x74\x68\x3E\x3C\x74\x68\x3E\x23\x3C\x2F\x74\x68\x3E\x3C\x2F\x74\x72\x3E\x0A","\x3C\x74\x72\x20\x73\x74\x79\x6C\x65\x3D\x22\x63\x6F\x6C\x6F\x72\x3A\x72\x65\x64\x3B\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x2D\x63\x6F\x6C\x6F\x72\x3A\x79\x65\x6C\x6C\x6F\x77\x22\x3E","\x3C\x74\x72\x20\x73\x74\x79\x6C\x65\x3D\x22\x63\x6F\x6C\x6F\x72\x3A\x62\x6C\x75\x65\x22\x3E","\x3C\x74\x72\x3E","\x3C\x74\x64\x20\x61\x6C\x69\x67\x6E\x3D\x22\x72\x69\x67\x68\x74\x22\x3E","\x3C\x2F\x74\x64\x3E","\x3C\x74\x64\x3E\x3C\x69\x6E\x70\x75\x74\x20\x69\x64\x3D\x22\x63\x6F\x6E","\x22\x20\x74\x79\x70\x65\x3D\x22\x6E\x75\x6D\x62\x65\x72\x22\x20\x6D\x61\x78\x6C\x65\x6E\x67\x74\x68\x3D\x22\x34\x22\x20\x73\x69\x7A\x65\x3D\x22\x34\x22\x20\x6E\x61\x6D\x65\x3D\x22\x63\x6F\x6E","\x22\x20\x76\x61\x6C\x75\x65\x3D\x22","\x22\x2F\x3E\x3C\x2F\x74\x64\x3E","\x3C\x74\x64\x3E\x3C\x69\x6E\x70\x75\x74\x20\x69\x64\x3D\x22\x68\x70","\x22\x20\x74\x79\x70\x65\x3D\x22\x74\x65\x78\x74\x22\x20\x6D\x61\x78\x6C\x65\x6E\x67\x74\x68\x3D\x22\x37\x22\x20\x73\x69\x7A\x65\x3D\x22\x37\x22\x20\x6E\x61\x6D\x65\x3D\x22\x68\x70","\x22\x20\x72\x65\x61\x64\x6F\x6E\x6C\x79\x3D\x22\x79\x65\x73\x22\x2F\x3E\x3C\x2F\x74\x64\x3E","\x3C\x74\x64\x3E\x3C\x62\x75\x74\x74\x6F\x6E\x20\x74\x79\x70\x65\x3D\x22\x62\x75\x74\x74\x6F\x6E\x22\x20\x6F\x6E\x63\x6C\x69\x63\x6B\x3D\x22\x75\x70\x64\x61\x74\x65\x48\x50\x28\x29\x22\x3E\x55\x70\x64\x61\x74\x65\x3C\x2F\x62\x75\x74\x74\x6F\x6E\x3E\x3C\x2F\x74\x64\x3E\x3C\x2F\x74\x72\x3E","\x3C\x2F\x74\x72\x3E\x0A","\x3C\x2F\x74\x61\x62\x6C\x65\x3E","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x69\x64\x63\x6F\x6E","\x63\x6F\x6E","\x68\x70","\x63\x65\x69\x6C","\x6D\x61\x74\x63\x68","\x65\x72\x72\x6F\x72\x5F\x6C\x76\x6C\x30","\x45\x52\x52\x4F\x52\x20\x6E\x75\x6D\x62\x65\x72\x20\x6F\x6E\x6C\x79\x21","\x45\x52\x52\x4F\x52\x20\x31\x2D\x34\x30\x30\x21","","\x65\x72\x72\x6F\x72\x5F\x63\x6F\x6E\x30","\x45\x52\x52\x4F\x52\x20\x31\x30\x30\x2D\x39\x39\x39\x39\x21","\x65\x72\x72\x6F\x72\x5F\x68\x70\x30","\x45\x52\x52\x4F\x52\x20\x31\x30\x30\x2D\x32\x30\x30\x30\x30\x30\x30\x21"];
@@ -81,10 +45,9 @@ function resetHP()
 {
 document[_0x1ec4[2]](_0x1ec4[1])[_0x1ec4[0]]= false;document[_0x1ec4[2]](_0x1ec4[3])[_0x1ec4[0]]= false;document[_0x1ec4[2]](_0x1ec4[4])[_0x1ec4[0]]= false;document[_0x1ec4[2]](_0x1ec4[6])[_0x1ec4[5]]= false;document[_0x1ec4[2]](_0x1ec4[7])[_0x1ec4[5]]= true
 }
-function updateHP()
-{
 function updateHP() {
-    if (document.getElementById("idcon").disabled === true) {
+    // Just call calcHP if the display area is active
+    if (!document.getElementById("idrestart").disabled) {
         calcHP();
     }
 }
